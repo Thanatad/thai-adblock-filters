@@ -3,7 +3,91 @@
 ! Description: รวมฟิลเตอร์บล็อกโฆษณาเว็บไทยทั้งหมด
 
 ! ดึงกฎจากไฟล์ movie-ads.txt มาใช้งาน
-@include https://raw.githubusercontent.com/Thanatad/thai-adblock-filters/main/movie-ads.txt
+
+! --- สำหรับเว็บ 24hd.today ---
+! 1. ลบกล่องรูปภาพของ Elementor ที่มีลิงก์ชี้ไปเว็บภายนอก (ปกหนังและโลโก้ IMDb ไม่มีลิงก์ครอบ จึงไม่โดนลบ)
+24hd.today##.elementor-widget-image:has(> .elementor-widget-container > a[href^="http"]:not([href*="24hd.today"]))
+
+! 2. ดักเก็บตก: ลบกล่องที่มีคำว่า advertisement ใน aria-label และลบรูปที่สูง 200px พอดี
+24hd.today##.elementor-widget-image:has(a[aria-label*="dvertisement"])
+24hd.today##.elementor-widget-image:has(img[height="200"])
+
+! 3. ดักแบนเนอร์ป้ายข้าง (200x580, 200x270) เผื่ออยู่ในโครงสร้างเดียวกัน
+24hd.today##.elementor-widget-image:has(img[width="200"])
+
+! --- บล็อกโฆษณาปลั๊กอิน ads-vip และ VAST Video Ads (รองรับทุกเว็บ) ---
+
+! 1. ซ่อนแบนเนอร์ทุกจุดที่ใช้คลาสของปลั๊กอิน ads-vip (ป้ายบน-ล่าง, ป้ายลอยซ้าย-ขวา, ป้ายทับหน้าจอ)
+##.vipx-grid
+##.vipx-item
+##.vipx-item--floating
+
+! 2. ซ่อนกล่องครอบโฆษณาเพื่อยุบพื้นที่ว่าง (เฉพาะกล่องที่มี .vipx-grid อยู่ข้างใน)
+##.s-container:has(> .vipx-grid)
+##.list-ads > div:has(> .vipx-grid)
+##.list-ads:has(.vipx-grid)
+
+! 3. ซ่อนเลเยอร์วิดีโอโฆษณาคั่น (JWPlayer Ad Overlay) ที่ใช้สคริปต์รูปแบบเดียวกัน
+###pm-dessert
+###pre-pm-dessert
+
+! 4. บล็อกการโหลดไฟล์สคริปต์และสไตล์ของปลั๊กอิน ads-vip รวมถึงไฟล์วิดีโอโฆษณาตั้งแต่ระดับ Network ทุกเว็บ
+*/wp-content/plugins/ads-vip/*
+*/wp-content/uploads/mvast.xml*$xmlhttprequest
+
+! --- สำหรับเว็บ wow-drama.com และเว็บโครงสร้างคล้ายกัน ---
+
+! 1. ซ่อนกล่องแบนเนอร์โฆษณาแนวนอนและตารางป้ายพนันทั้งหมด
+wow-drama.com##.list-ads
+wow-drama.com##.list-bbr
+
+! 2. ซ่อนป้ายโฆษณาป๊อปอัพที่ลอยทับอยู่บนตัวเล่นวิดีโอ (Player Overlay Ads)
+wow-drama.com###adsBox
+wow-drama.com##.ads-bokplayer
+
+! 3. กฎแบบครอบคลุม (Global) สำหรับบล็อกคลาสโฆษณาโครงสร้างนี้ทุกเว็บไซต์
+##.list-ads
+##.list-bbr
+###adsBox
+##.ads-bokplayer
+
+! 4. บล็อกสคริปต์ย่อยและไฟล์ภาพโฆษณาที่โหลดจากโฟลเดอร์ปลั๊กอินโฆษณา
+*/wp-content/uploads/*.gif$image,domain=wow-drama.com
 
 ! ดึงกฎจากไฟล์ manga-ads.txt มาใช้งาน
-@include https://raw.githubusercontent.com/Thanatad/thai-adblock-filters/main/manga-ads.txt
+
+! --- สำหรับเว็บ god-doujin.com ---
+
+! 1. บล็อกกล่องแบนเนอร์โฆษณาหลักและป้ายโฆษณาด้านบน/ล่าง
+god-doujin.com##.gd-ban
+god-doujin.com##.bixbox.hothome.full:has(a[href*="con3"])
+
+! 2. บล็อกป้ายโฆษณาแบบลอยติดหน้าจอ (Floating Ads / Popups) ทั้งหมด
+god-doujin.com##.floating_content
+god-doujin.com##.ads-info
+
+! 3. บล็อกรูปภาพโฆษณาพนันที่แทรกอยู่ในเนื้อหาและฟוטเตอร์
+god-doujin.com##a[href*="ibit.ly"]
+god-doujin.com##a[href*="cdend.com"]
+god-doujin.com##img[src*="cdend.com"]
+
+! 4. กฎแบบครอบคลุม (Global) สำหรับบล็อกคลาสป้ายลอยของธีมนี้
+##.floating_content
+
+! --- สำหรับเว็บ go-manga.com ---
+
+! 1. บล็อกกล่องแบนเนอร์โฆษณาหลักและป้ายแทรกระหว่างเนื้อหา
+go-manga.com##.center_gomanga
+go-manga.com##.center_gomangaza
+go-manga.com##.center_gomangafixsize
+
+! 2. บล็อกแถบป้ายโฆษณาติดขอบจอด้านล่างและป้ายลอย (Sticky & Floating Ads)
+go-manga.com###sticky-bottom
+go-manga.com###sticky-bottom2
+go-manga.com###sticky-bottom3
+go-manga.com##.floating_content
+
+! 3. บล็อกลิงก์และรูปภาพโฆษณาภายนอกที่ใช้โดเมนฝากไฟล์แบนเนอร์
+go-manga.com##a[href*="ibit.ly"]
+go-manga.com##a[href*="t.ly"]
+go-manga.com##img[src*="cdend.com"]
