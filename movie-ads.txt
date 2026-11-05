@@ -1,0 +1,49 @@
+! --- สำหรับเว็บ 24hd.today ---
+! 1. ลบกล่องรูปภาพของ Elementor ที่มีลิงก์ชี้ไปเว็บภายนอก (ปกหนังและโลโก้ IMDb ไม่มีลิงก์ครอบ จึงไม่โดนลบ)
+24hd.today##.elementor-widget-image:has(> .elementor-widget-container > a[href^="http"]:not([href*="24hd.today"]))
+
+! 2. ดักเก็บตก: ลบกล่องที่มีคำว่า advertisement ใน aria-label และลบรูปที่สูง 200px พอดี
+24hd.today##.elementor-widget-image:has(a[aria-label*="dvertisement"])
+24hd.today##.elementor-widget-image:has(img[height="200"])
+
+! 3. ดักแบนเนอร์ป้ายข้าง (200x580, 200x270) เผื่ออยู่ในโครงสร้างเดียวกัน
+24hd.today##.elementor-widget-image:has(img[width="200"])
+
+! --- บล็อกโฆษณาปลั๊กอิน ads-vip และ VAST Video Ads (รองรับทุกเว็บ) ---
+
+! 1. ซ่อนแบนเนอร์ทุกจุดที่ใช้คลาสของปลั๊กอิน ads-vip (ป้ายบน-ล่าง, ป้ายลอยซ้าย-ขวา, ป้ายทับหน้าจอ)
+##.vipx-grid
+##.vipx-item
+##.vipx-item--floating
+
+! 2. ซ่อนกล่องครอบโฆษณาเพื่อยุบพื้นที่ว่าง (เฉพาะกล่องที่มี .vipx-grid อยู่ข้างใน)
+##.s-container:has(> .vipx-grid)
+##.list-ads > div:has(> .vipx-grid)
+##.list-ads:has(.vipx-grid)
+
+! 3. ซ่อนเลเยอร์วิดีโอโฆษณาคั่น (JWPlayer Ad Overlay) ที่ใช้สคริปต์รูปแบบเดียวกัน
+###pm-dessert
+###pre-pm-dessert
+
+! 4. บล็อกการโหลดไฟล์สคริปต์และสไตล์ของปลั๊กอิน ads-vip รวมถึงไฟล์วิดีโอโฆษณาตั้งแต่ระดับ Network ทุกเว็บ
+*/wp-content/plugins/ads-vip/*
+*/wp-content/uploads/mvast.xml*$xmlhttprequest
+
+! --- สำหรับเว็บ wow-drama.com และเว็บโครงสร้างคล้ายกัน ---
+
+! 1. ซ่อนกล่องแบนเนอร์โฆษณาแนวนอนและตารางป้ายพนันทั้งหมด
+wow-drama.com##.list-ads
+wow-drama.com##.list-bbr
+
+! 2. ซ่อนป้ายโฆษณาป๊อปอัพที่ลอยทับอยู่บนตัวเล่นวิดีโอ (Player Overlay Ads)
+wow-drama.com###adsBox
+wow-drama.com##.ads-bokplayer
+
+! 3. กฎแบบครอบคลุม (Global) สำหรับบล็อกคลาสโฆษณาโครงสร้างนี้ทุกเว็บไซต์
+##.list-ads
+##.list-bbr
+###adsBox
+##.ads-bokplayer
+
+! 4. บล็อกสคริปต์ย่อยและไฟล์ภาพโฆษณาที่โหลดจากโฟลเดอร์ปลั๊กอินโฆษณา
+*/wp-content/uploads/*.gif$image,domain=wow-drama.com
