@@ -7,6 +7,9 @@ on:
       - 'movie-ads.txt'
       - 'manga-ads.txt'
 
+permissions:
+  contents: write  # กำหนดสิทธิ์ให้ GitHub Actions สามารถเขียนไฟล์กลับเข้า Repo ได้
+
 jobs:
   build:
     runs-on: ubuntu-latest
