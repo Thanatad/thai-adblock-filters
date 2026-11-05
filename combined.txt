@@ -1,8 +1,5 @@
-[Adblock Plus 2.0]
 ! Title: Thai Combined Ads Filter
-! Description: รวมฟิลเตอร์บล็อกโฆษณาเว็บไทยทั้งหมด
-
-! ดึงกฎจากไฟล์ movie-ads.txt มาใช้งาน
+! Description: Automatically combined filter list
 
 ! --- สำหรับเว็บ 24hd.today ---
 ! 1. ลบกล่องรูปภาพของ Elementor ที่มีลิงก์ชี้ไปเว็บภายนอก (ปกหนังและโลโก้ IMDb ไม่มีลิงก์ครอบ จึงไม่โดนลบ)
@@ -53,9 +50,6 @@ wow-drama.com##.ads-bokplayer
 
 ! 4. บล็อกสคริปต์ย่อยและไฟล์ภาพโฆษณาที่โหลดจากโฟลเดอร์ปลั๊กอินโฆษณา
 */wp-content/uploads/*.gif$image,domain=wow-drama.com
-
-! ดึงกฎจากไฟล์ manga-ads.txt มาใช้งาน
-
 ! --- สำหรับเว็บ god-doujin.com ---
 
 ! 1. บล็อกกล่องแบนเนอร์โฆษณาหลักและป้ายโฆษณาด้านบน/ล่าง
@@ -91,3 +85,21 @@ go-manga.com##.floating_content
 go-manga.com##a[href*="ibit.ly"]
 go-manga.com##a[href*="t.ly"]
 go-manga.com##img[src*="cdend.com"]
+
+! --- สำหรับเว็บ dark-manga.com ---
+
+! 1. บล็อกกล่องแบนเนอร์โฆษณาหลักด้านบนและแทรกเนื้อหา
+dark-manga.com##.center_darkmanga
+dark-manga.com##.center_darkmangaza
+dark-manga.com##.center_darkmangafixsize
+
+! 2. บล็อกแถบป้ายโฆษณาติดขอบจอด้านล่างและป้ายลอยมุมจอ (Sticky & Floating Ads)
+dark-manga.com###sticky-bottom
+dark-manga.com###sticky-bottom2
+dark-manga.com###sticky-bottom3
+dark-manga.com##.floating_content
+
+! 3. บล็อกลิงก์และรูปภาพโฆษณาภายนอก (เครือข่ายเว็บพนันและลิงก์ย่อ)
+dark-manga.com##a[href*="ibit.ly"]
+dark-manga.com##a[href*="t.ly"]
+
