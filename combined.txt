@@ -37,6 +37,7 @@
 ! 1. ซ่อนกล่องแบนเนอร์โฆษณาแนวนอนและตารางป้ายพนันทั้งหมด
 wow-drama.com##.list-ads
 wow-drama.com##.list-bbr
+wow-drama.com##.entry-content > .container > .meta
 
 ! 2. ซ่อนป้ายโฆษณาป๊อปอัพที่ลอยทับอยู่บนตัวเล่นวิดีโอ (Player Overlay Ads)
 wow-drama.com###adsBox
