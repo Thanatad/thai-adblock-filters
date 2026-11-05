@@ -35,6 +35,7 @@
 wow-drama.com##.list-ads
 wow-drama.com##.list-bbr
 wow-drama.com##.entry-content > .container > .meta
+wow-drama.com##.page-header > .meta
 
 ! 2. ซ่อนป้ายโฆษณาป๊อปอัพที่ลอยทับอยู่บนตัวเล่นวิดีโอ (Player Overlay Ads)
 wow-drama.com###adsBox
