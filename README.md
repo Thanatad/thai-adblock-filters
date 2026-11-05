@@ -14,8 +14,6 @@ You can add either the all-in-one combined list (recommended) or individual cate
 | **🎬 Movie / Streaming Ads** | Blocks video player overlays and `ads-vip` banners | `https://raw.githubusercontent.com/Thanatad/thai-adblock-filters/main/movie-ads.txt` |
 | **📚 Manga / Doujin Ads** | Removes banner ads and floating pop-ups on reader sites | `https://raw.githubusercontent.com/Thanatad/thai-adblock-filters/main/manga-ads.txt` |
 
-*(⚠️ Remember to replace `YOUR_USERNAME` in the URLs with your actual GitHub username!)*
-
 ---
 
 ## 🚀 Key Features
