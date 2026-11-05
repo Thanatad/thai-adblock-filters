@@ -1,0 +1,9 @@
+[Adblock Plus 2.0]
+! Title: Thai Combined Ads Filter
+! Description: รวมฟิลเตอร์บล็อกโฆษณาเว็บไทยทั้งหมด
+
+! ดึงกฎจากไฟล์ movie-ads.txt มาใช้งาน
+@include https://raw.githubusercontent.com/Thanatad/thai-adblock-filters/main/movie-ads.txt
+
+! ดึงกฎจากไฟล์ manga-ads.txt มาใช้งาน
+@include https://raw.githubusercontent.com/Thanatad/thai-adblock-filters/main/manga-ads.txt
