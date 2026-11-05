@@ -33,3 +33,20 @@ go-manga.com##.floating_content
 go-manga.com##a[href*="ibit.ly"]
 go-manga.com##a[href*="t.ly"]
 go-manga.com##img[src*="cdend.com"]
+
+! --- สำหรับเว็บ dark-manga.com ---
+
+! 1. บล็อกกล่องแบนเนอร์โฆษณาหลักด้านบนและแทรกเนื้อหา
+dark-manga.com##.center_darkmanga
+dark-manga.com##.center_darkmangaza
+dark-manga.com##.center_darkmangafixsize
+
+! 2. บล็อกแถบป้ายโฆษณาติดขอบจอด้านล่างและป้ายลอยมุมจอ (Sticky & Floating Ads)
+dark-manga.com###sticky-bottom
+dark-manga.com###sticky-bottom2
+dark-manga.com###sticky-bottom3
+dark-manga.com##.floating_content
+
+! 3. บล็อกลิงก์และรูปภาพโฆษณาภายนอก (เครือข่ายเว็บพนันและลิงก์ย่อ)
+dark-manga.com##a[href*="ibit.ly"]
+dark-manga.com##a[href*="t.ly"]
