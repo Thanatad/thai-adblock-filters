@@ -50,3 +50,4 @@ dark-manga.com##.floating_content
 ! 3. บล็อกลิงก์และรูปภาพโฆษณาภายนอก (เครือข่ายเว็บพนันและลิงก์ย่อ)
 dark-manga.com##a[href*="ibit.ly"]
 dark-manga.com##a[href*="t.ly"]
+
